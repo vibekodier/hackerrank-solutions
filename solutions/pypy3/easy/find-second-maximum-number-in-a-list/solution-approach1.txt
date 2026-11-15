@@ -7,6 +7,12 @@
 # Language    pypy3
 # Status      Accepted
 # Submitted   2026-11-15, 10:18 p.m.
+# Technique   set-deduplication-and-sorting
+# Time        O(N log N)
+# Space       O(N)
+# Insight     The implementation removes duplicate scores by converting the input list to a set, then sorts the unique elements to identify the second-to-last value as the runner-up.
+# Interview   Before: "How would you find the second largest value in an array?" After: "I would use a set to remove duplicates and then sort the collection, which takes O(N log N) time. This approach correctly handles cases where the maximum value appears multiple times."
+# Pitfalls    (1) Failing to remove duplicates with set() would return the maximum value again if it appears multiple times in the input.  (2) Accessing index -2 on a list with fewer than two unique elements will raise an IndexError.
 # ──────────────────────────────────────────────────
 
 if __name__ == '__main__':
